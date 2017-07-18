@@ -27,7 +27,7 @@ class UsersController extends Controller
     public function create()
     {
         return view('admin.users.create');
-    }   
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,7 +41,7 @@ class UsersController extends Controller
         $user->password=bcrypt($request->password);
         $user->save();
 
-        flash("Se ha registrado de forma exitosa.")->success()->important();
+        flash("Se ha registrado a ". $user->name ." de forma exitosa.")->success()->important();
         return redirect()->route('users.index');
     }
 
@@ -87,6 +87,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::find($id);
+        $user->delete();
+        flash("El usuario ". $user->name ." se ha eliminado de forma exitosa.")->success()->important();
+        return redirect()->route('users.index');
     }
 }

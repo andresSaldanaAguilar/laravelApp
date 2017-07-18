@@ -28,12 +28,16 @@
 							@endif
 						</td>
 						<td>
-							<a href="" class="btn btn-danger">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true">
-								</span></a>
 								<a href="" class="btn btn-info">
 	 							 <span class="glyphicon glyphicon-edit" aria-hidden="true">
-	 							 </span></a>
+	 							 </span>
+							 </a>
+								 <a href="{{route('admin.users.destroy',$user->id)}}"
+									 onclick="return confirm('Seguro que quiere eliminar al usuario {{$user->name}}?')"
+									 class="btn btn-danger">
+									 <span class="glyphicon glyphicon-remove" aria-hidden="true">
+									 </span>
+								 </a>
 					 </td>
 					</tr>
 				@endforeach

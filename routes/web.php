@@ -21,7 +21,7 @@ Route::group(['prefix'=>'admin'],function(){
   Route::get('users/{id}/destroy',[
     'uses'=>'UsersController@Destroy',
     'as'=>'admin.users.destroy'
-  ])
+  ]);
 });
 
 
