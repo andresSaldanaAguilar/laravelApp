@@ -14,10 +14,16 @@
     <!--header-->
     <div class="container" style="@yield('main-panel-size')">
       <div class="@yield('main-panel-style','panel panel-default')">
-          <div class="panel-heading"><h4>@yield('header')</h4></div>
+          <div class="panel-heading">
+            <ul class="nav nav-pills" >
+            <li><h4>@yield('header')</h4></li>
+            @yield('create-new-user')
+         </ul>
+          </div>
               <!--content-->
               <div class="panel-body">
                 @include('flash::message')
+                @include('admin.template.partials.errors')
                 @yield('content')
           </div>
       </div>

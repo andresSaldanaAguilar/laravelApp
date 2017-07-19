@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Category;
 use Laracasts\Flash\Flash;
-use App\http\Requests\UserRequest;
+use App\http\Requests\CategoryRequest;
 
-class UsersController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id','ASC')->paginate(4);
-        return view('admin.users.index')->with('users',$users);
+       //$users = User::orderBy('id','ASC')->paginate(4);
+       return view('admin.categories.index');
     }
 
     /**
@@ -27,7 +27,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        return view('admin.categories.create');
     }
 
     /**
@@ -36,14 +36,12 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(CategoryRequest $request)
     {
-        $user = new User($request->all());
-        $user->password=bcrypt($request->password);
-        $user->save();
-
-        flash("Se ha registrado a ". $user->name ." de forma exitosa.")->success()->important();
-        return redirect()->route('users.index');
+        $category = new Category($request->all());
+        $category->save();
+        flash("Se ha registrado la categoria ". $category->name ." de forma exitosa.")->success()->important();
+        return redirect()->route('categories.index');
     }
 
     /**
