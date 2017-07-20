@@ -17,7 +17,7 @@
           <div class="panel-heading">
             <ul class="nav nav-pills" >
             <li><h4>@yield('header')</h4></li>
-            @yield('create-new-user')
+            @yield('create-new')
          </ul>
           </div>
               <!--content-->

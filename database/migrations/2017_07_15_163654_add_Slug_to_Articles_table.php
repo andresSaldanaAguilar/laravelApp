@@ -26,7 +26,7 @@ class AddSlugToArticlesTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('slueg');
+            $table->dropColumn('slug');
         });
     }
 }

@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
-use Laracasts\Flash\Flash;
-use App\http\Requests\CategoryRequest;
 
-class CategoriesController extends Controller
+class TagsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-       $categories = Category::orderBy('id','ASC')->paginate(4);
-       return view('admin.categories.index')->with('categories',$categories);
+        return view('admin.tags.index');
     }
 
     /**
@@ -27,7 +23,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.tags.create');
     }
 
     /**
@@ -36,12 +32,9 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(Request $request)
     {
-        $category = new Category($request->all());
-        $category->save();
-        flash("Se ha registrado la categoria ". $category->name ." de forma exitosa.")->success()->important();
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -63,8 +56,7 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category=Category::find($id);
-        return view('admin.categories.edit')->with('category',$category);
+        //
     }
 
     /**
@@ -76,11 +68,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category=Category::find($id);
-        $category->fill($request->all());
-        $category->save();
-        flash("La categoria ". $category->name ." se ha editado de forma exitosa.")->success()->important();
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -91,9 +79,6 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $category=Category::find($id);
-        $category->delete();
-        flash("La categoria ". $category->name ." se ha eliminado de forma exitosa.")->success()->important();
-        return redirect()->route('categories.index');
+        //
     }
 }

@@ -11,34 +11,53 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/',['as'=>'admin.index',function () {
     return view('welcome');
-});
+}]);
 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 	//nombre de la subruta y nombre del controlador
-	Route::resource('users','UsersController');
-  Route::get('users/{id}/destroy',[
-    'uses'=>'UsersController@Destroy',
-    'as'=>'admin.users.destroy'
+
+  Route::get('/',['as'=>'admin.index',function () {
+      return view('welcome');
+  }]);
+
+  Route::resource('users','UsersController');
+    Route::get('users/{id}/destroy',  [
+      'uses'=>'UsersController@Destroy',
+      'as'=>'admin.users.destroy'
   ]);
 
 	Route::resource('categories','CategoriesController');
-  /*Route::get('users/{id}/destroy',[
-    'uses'=>'UsersController@Destroy',
-    'as'=>'admin.users.destroy'
-  ]);*/
+    Route::get('categories/{id}/destroy',[
+      'uses'=>'CategoriesController@Destroy',
+      'as'=>'admin.categories.destroy'
+    ]);
+
+    Route::resource('tags','TagsController');
+      Route::get('categories/{id}/destroy',[
+        'uses'=>'TagsController@Destroy',
+        'as'=>'admin.tags.destroy'
+    ]);
+
+
 });
 
 
 /*
-Route::group(['prefix'=>'articles'],function(){
-
- ///articles/view/1
-  Route::get('view/{id}',[
-    'uses' => 'TestController@view',
-    'as' => 'articlesView'
-  ]);
-
-});
+Auth::routes();
 */
+Route::get('admin/auth/login', [
+    'uses'  => 'Auth\LoginController@showLoginForm',
+    'as'    => 'admin.auth.login'
+]);
+
+Route::post('admin/auth/login', [
+    'uses'  => 'Auth\LoginController@login',
+    'as'    => 'admin.auth.login'
+]);
+
+Route::get('admin/auth/logout', [
+    'uses'  => 'Auth\LoginController@logout',
+    'as'    => 'admin.auth.logout'
+]);

@@ -4,7 +4,7 @@
 
 @section('main-panel-style','panel panel-primary')
 
-@section('create-new-user')
+@section('create-new')
 		<li style="float: right;">
 			<a href="{{route('users.create')}}" class="btn btn-success">
 		  <span class="glyphicon glyphicon-plus" aria-hidden="Left-Align">

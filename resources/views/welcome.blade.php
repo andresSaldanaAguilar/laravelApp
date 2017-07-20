@@ -2,10 +2,7 @@
 
 @section('title','Home')
 
-@section('header')
-  Las nuevas
-@endsection
-
 @section('content')
-  <p>Se encontro a kokun borracho en el puente del tepeyac.</p>
+  <h1>This is bootstrap</h1>
+  <a href="" class="btn btn-success">Presioname</a>
 @endsection
