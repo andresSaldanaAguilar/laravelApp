@@ -12,13 +12,13 @@
 
     @include('admin.template.partials.nav')
     <!--header-->
-    <div class="container" style="@yield('main-panel-size')">
+    <div class="container" style="@yield('main-panel-size');">
       <div class="@yield('main-panel-style','panel panel-default')">
-          <div class="panel-heading">
+          <div class="panel-heading" style="background-color:#5E8DC6;">
             <ul class="nav nav-pills" >
-            <li><h4>@yield('header')</h4></li>
-            @yield('create-new')
-         </ul>
+              <li><h4>@yield('header')</h4></li>
+              <li>@yield('create-new')<li>
+            </ul>
           </div>
               <!--content-->
               <div class="panel-body">

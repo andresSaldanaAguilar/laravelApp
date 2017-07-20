@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function articles(){
       return $this->hasMany('App\Article');
     }
+    public function scopeSearchUser($query,$name){
+      return $query->where('name','LIKE',"%$name%");
+    }
+
 }

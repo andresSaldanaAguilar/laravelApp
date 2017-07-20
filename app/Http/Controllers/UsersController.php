@@ -14,9 +14,9 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::orderBy('id','ASC')->paginate(4);
+        $users = User::SearchUser($request->name)->orderBy('id','ASC')->paginate(4);
         return view('admin.users.index')->with('users',$users);
     }
 

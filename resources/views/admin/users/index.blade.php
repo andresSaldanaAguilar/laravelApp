@@ -11,6 +11,18 @@
 		  </span>
 			</a>
 		</li>
+
+		<!--buscador de users-->
+			{!! Form::open(['route'=>'users.index','method'=>'GET','class'=>'navbar-form pull-right'])!!}
+				<div class="input-group">
+					{!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar usuario','aria-describedby'=>'search'])!!}
+					<span class="input-group-addon" id="search">
+						<span class="glyphicon glyphicon-search"></span>
+					</span>
+				</div>
+			{!!Form::close()!!}
+		<!--fin de buscador-->
+
 @endsection
 
 @section('content')
