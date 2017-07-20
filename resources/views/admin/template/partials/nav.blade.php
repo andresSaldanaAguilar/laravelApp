@@ -48,9 +48,17 @@
            </ul>
          </li>
 
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Tags <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{route('tags.create')}}">Crear Tag</a></li>
+            <li><a href="{{route('tags.index')}}">Manejar Tags</a></li>
+          </ul>
+        </li>
+
           <li><a href="#" style="color:#3170D5">Articulos</a></li>
           <li><a href="#" style="color:#3170D5">Imagenes</a></li>
-          <li><a href="#" style="color:#3170D5">Tags</a></li>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tag;
+use Laracasts\Flash\Flash;
+use App\Http\Requests\TagRequest;
 
 class TagsController extends Controller
 {
@@ -11,9 +14,10 @@ class TagsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.tags.index');
+        $tags = Tag::search($request->name)->orderBy('id','ASC')->paginate(4);
+        return view('admin.tags.index')->with('tags',$tags);;
     }
 
     /**
@@ -32,9 +36,12 @@ class TagsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-        //
+        $tag=new Tag($request->all());
+        $tag->save();
+        flash("Se ha registrado la tag ". $tag->name ." de forma exitosa.")->success()->important();
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -56,7 +63,8 @@ class TagsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $tag=Tag::find($id);
+      return view('admin.tags.edit')->with('tag',$tag);
     }
 
     /**
@@ -68,7 +76,11 @@ class TagsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $tag=Tag::find($id);
+      $tag->fill($request->all());
+      $tag->save();
+      flash("El tag ". $tag->name ." se ha editado de forma exitosa.")->success()->important();
+      return redirect()->route('tags.index');
     }
 
     /**
@@ -79,6 +91,9 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $tag=Tag::find($id);
+      $tag->delete();
+      flash("El tag ". $tag->name ." se ha eliminado de forma exitosa.")->success()->important();
+      return redirect()->route('tags.index');
     }
 }

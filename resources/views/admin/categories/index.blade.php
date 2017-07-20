@@ -32,7 +32,7 @@
 	 							 </span>
 							 </a>
 								 <a href="{{route('admin.categories.destroy',$category->id)}}"
-									 onclick="return confirm('Seguro que quiere eliminar al usuario {{$category->name}}?')"
+									 onclick="return confirm('Seguro que quiere eliminar al tag {{$category->name}}?')"
 									 class="btn btn-danger">
 									 <span class="glyphicon glyphicon-remove" aria-hidden="true">
 									 </span>

@@ -33,8 +33,8 @@
 		<div class="form-group">
 			{!! Form::label('type','Tipo') !!}
 			<!-- nombre, valorxdefecto,opciones del input -->
-			{!! Form::select('type',[''=>'Seleccionar','member'=> 'Miembro','admin'=>'Administrador'],null,
-			['class'=>'form-control']) !!}
+			{!! Form::select('type',['member'=> 'Miembro','admin'=>'Administrador'],$user->type,
+			['class'=>'form-control','placeholder'=>'Seleccione una opcion','required']) !!}
 		</div>
 
 		<div class="form-group">
