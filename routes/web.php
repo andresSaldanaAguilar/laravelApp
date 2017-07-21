@@ -32,15 +32,19 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
     Route::get('categories/{id}/destroy',[
       'uses'=>'CategoriesController@Destroy',
       'as'=>'admin.categories.destroy'
-    ]);
+  ]);
 
-    Route::resource('tags','TagsController');
-      Route::get('tags/{id}/destroy',[
-        'uses'=>'TagsController@Destroy',
-        'as'=>'admin.tags.destroy'
-    ]);
+  Route::resource('tags','TagsController');
+    Route::get('tags/{id}/destroy',[
+      'uses'=>'TagsController@Destroy',
+      'as'=>'admin.tags.destroy'
+  ]);
 
-
+  Route::resource('articles','ArticlesController');
+    Route::get('articles/{id}/destroy',[
+      'uses'=>'ArticlesController@Destroy',
+      'as'=>'admin.articles.destroy'
+  ]);
 });
 
 
