@@ -2,8 +2,6 @@
 
 @section('title','Crear Articulo')
 
-@section('main-panel-size','padding-left: 20%;padding-right: 20%;')
-
 @section('main-panel-style','panel panel-primary')
 
 @section('header','Crear un Articulo')
@@ -29,7 +27,7 @@
 		<div class="form-group">
 			{!! Form::label('content','Contenido') !!}
 			<!-- nombre, valorxdefecto,opciones del input -->
-			{!! Form::textarea('content',null,['class'=>'form-control','required']) !!}
+			{!! Form::textarea('content',null,['class'=>'form-control textarea-content','required']) !!}
 		</div>
 
 		<div class="form-group">
@@ -63,6 +61,10 @@
 	$('.select-category').chosen({
 		placeholder_text_single:'Seleccionar categoria',
 		no_results_text: 'Oops, al parecer no hay concidencias para '
+	});
+
+	$('.textarea-content').trumbowyg({
+		lang: 'es'
 	});
 </script>
 @endsection

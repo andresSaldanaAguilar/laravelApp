@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color:#DBDBDB;">
   <head>
     <meta charset="utf-8">
     <title>@yield('title','Default') | Panel de administracion</title>
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!--chosen-->
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/trumbowyg/ui/trumbowyg.css')}}">
   </head>
   <style>
       html, body {
@@ -51,9 +52,13 @@
         </div>
       </div>
 
-    <script src="{{ asset('plugins/jquery/js/jquery-3.2.1.slim.js')}}"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js')}}"></script>
+    <script src="{{ asset('plugins/trumbowyg/trumbowyg.js')}}"></script>
+    <script src="{{ asset('plugins/trumbowyg/plugins/emoji/trumbowyg.emoji.js')}}"></script>
+
     @yield('js')
   <body>
 </html>
