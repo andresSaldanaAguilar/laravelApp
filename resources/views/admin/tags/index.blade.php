@@ -2,7 +2,7 @@
 
 @section('header','Lista de tags')
 
-@section('main-panel-style','panel panel-default')
+@section('main-panel-style','panel panel-primary')
 
 @section('create-new')
 		<li style="float: right;">

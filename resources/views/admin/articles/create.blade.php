@@ -23,7 +23,7 @@
 		<div class="form-group">
 			{!! Form::label('category_id','Categoria') !!}
 			<!-- nombre, valorxdefecto,opciones del input -->
-			{!! Form::select('category_id',$categories,null,['class'=>'form-control','placeholder'=>'Seleccionar categoria','required']) !!}
+			{!! Form::select('category_id',$categories,null,['class'=>'form-control select-category','placeholder'=>'Seleccionar categoria','required']) !!}
 		</div>
 
 		<div class="form-group">
@@ -33,15 +33,36 @@
 		</div>
 
 		<div class="form-group">
-			{!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
+			{!! Form::label('tags','Tags') !!}
+			<!-- los corhetes indican que enviaremos un ARREGLO de tags -->
+			{!! Form::select('tags[]',$tags,null,['class'=>'form-control select-tag','multiple','required']) !!}
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('tags','Tags') !!}
-			<!-- nombre, valorxdefecto,opciones del input -->
-			{!! Form::select('tags',$tags,null,['class'=>'form-control','multiple','required']) !!}
+			{!! Form::label('image','Imagen')!!}
+			{!! Form::file('image')!!}
+		</div
+
+		<div class="form-group">
+			{!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
 		</div>
+
 
 	{!! Form::close() !!}
 
+@endsection
+
+@section('js')
+<script>
+	$('.select-tag').chosen({
+		placeholder_text_multiple:'Seleccionar tags (3 maximo)',
+		max_selected_options:3,
+		no_results_text: 'Oops, al parecer no hay concidencias para '
+	});
+
+	$('.select-category').chosen({
+		placeholder_text_single:'Seleccionar categoria',
+		no_results_text: 'Oops, al parecer no hay concidencias para '
+	});
+</script>
 @endsection

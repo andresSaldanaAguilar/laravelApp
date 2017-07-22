@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:white">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -35,28 +35,35 @@
            <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Usuarios <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{route('users.create')}}">Crear Usuario</a></li>
-              <li><a href="{{route('users.index')}}">Manejar Usuarios</a></li>
+              <li><a href="{{route('users.create')}}">Crear</a></li>
+              <li><a href="{{route('users.index')}}">Manejar</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Categorias <span class="caret"></span></a>
            <ul class="dropdown-menu">
-             <li><a href="{{route('categories.create')}}" >Crear Categoria</a></li>
-             <li><a href="{{route('categories.index')}}">Manejar Categorias</a></li>
+             <li><a href="{{route('categories.create')}}" >Crear</a></li>
+             <li><a href="{{route('categories.index')}}">Manejar</a></li>
            </ul>
          </li>
 
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Tags <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{route('tags.create')}}">Crear Tag</a></li>
-            <li><a href="{{route('tags.index')}}">Manejar Tags</a></li>
+            <li><a href="{{route('tags.create')}}">Crear</a></li>
+            <li><a href="{{route('tags.index')}}">Manejar</a></li>
           </ul>
         </li>
 
-          <li><a href="#" style="color:#3170D5">Articulos</a></li>
+        <li class="dropdown">
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Articulos <span class="caret"></span></a>
+         <ul class="dropdown-menu">
+           <li><a href="{{route('articles.create')}}">Crear</a></li>
+           <li><a href="{{route('articles.index')}}">Manejar</a></li>
+         </ul>
+       </li>
+
           <li><a href="#" style="color:#3170D5">Imagenes</a></li>
 
         </ul>

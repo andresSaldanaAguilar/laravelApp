@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Notifications\Notifiable;
 
 class Article extends Model
 {
@@ -25,7 +26,7 @@ class Article extends Model
                 'source' => 'title'
             ]
         ];
-    }  
+    }
 
    //relationships with other tables
    public function category(){
@@ -39,6 +40,9 @@ class Article extends Model
    }
    public function tags(){
        return $this->belongsToMany('App\Tag')->withTimestamps();
+   }
+   public function scopeSearchArticle($query,$title){
+     return $query->where('title','LIKE',"%$title%");
    }
 
 }

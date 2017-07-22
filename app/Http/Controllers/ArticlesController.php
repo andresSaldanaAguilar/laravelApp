@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Tag;
+use App\Article;
+use App\Image;
 use Laracasts\Flash\Flash;
-//use App\http\Requests\UserRequest;
+use App\http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
@@ -17,7 +19,7 @@ class ArticlesController extends Controller
      */
     public function index(Request $request)
     {
-        $articles = Article::SearchUser($request->name)->orderBy('id','ASC')->paginate(4);
+        $articles = Article::SearchArticle($request->title)->orderBy('id','ASC')->paginate(4);
         return view('admin.articles.index')->with('articles',$articles);
     }
 
@@ -43,13 +45,30 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        $article = new Article($request->all());
-        $article->password=bcrypt($request->password);
-        $article->save();
 
-        flash("Se ha registrado a ". $article->name ." de forma exitosa.")->success()->important();
+       if($request->file('image')){
+        //manipulacion de imagenes (archicos)
+        $file=$request->file('image');
+        $name='blogAndres_'.time().'.'.$file->getClientOriginalExtension();
+        $path= public_path().'\images\articles';
+        //movemos el archivo al path donde almacenaremos las imagenes
+        $file->move($path,$name);
+        }
+
+        $article=new Article($request->all());
+        $article->user_id=\Auth::user()->id;
+        $article->save();
+        //sync rellena la tabla pivote
+        $article->tags()->sync($request->tags);
+        if($request->file('image')){
+        $image= new Image();
+        $image->name=$name;
+        $image->article()->associate($article);
+        $image->save();
+        }
+        Flash::success('Se ha creado el articulo '.$article->title. ' de forma satisfactoria.');
         return redirect()->route('articles.index');
     }
 
@@ -88,7 +107,7 @@ class ArticlesController extends Controller
         $article=Article::find($id);
         $article->fill($request->all());
         $article->save();
-        flash("El usuario ". $article->name ." se ha editado de forma exitosa.")->success()->important();
+        flash("El usuario ". $article->title ." se ha editado de forma exitosa.")->success()->important();
         return redirect()->route('articles.index');
     }
 
@@ -102,7 +121,7 @@ class ArticlesController extends Controller
     {
         $article=Article::find($id);
         $article->delete();
-        flash("El usuario ". $article->name ." se ha eliminado de forma exitosa.")->success()->important();
+        flash("El usuario ". $article->title ." se ha eliminado de forma exitosa.")->success()->important();
         return redirect()->route('articles.index');
     }
 }
