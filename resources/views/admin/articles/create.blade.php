@@ -38,11 +38,11 @@
 
 		<div class="form-group">
 			{!! Form::label('image','Imagen')!!}
-			{!! Form::file('image')!!}
+			{!! Form::file('image',['class'=>'input-file'])!!}
 		</div
 
 		<div class="form-group">
-			{!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
+			{!! Form::submit('Crear Articulo',['class'=>'btn btn-primary']) !!}
 		</div>
 
 
@@ -51,6 +51,7 @@
 @endsection
 
 @section('js')
+<script src="{{asset('plugins/fileinput/bootstrap-fileinput-master/themes/fa')}}"></script>
 <script>
 	$('.select-tag').chosen({
 		placeholder_text_multiple:'Seleccionar tags (3 maximo)',
@@ -64,7 +65,16 @@
 	});
 
 	$('.textarea-content').trumbowyg({
-		lang: 'es'
+		lang: 'es',
 	});
+
+	$('.input-file').fileinput({
+		maxFileSize:200,
+		width:"120px",
+		length:"120px",
+		maxFileCount: 1,
+		allowedFileExtensions: ["jpg", "gif", "png", "jpeg"]
+	});
+
 </script>
 @endsection

@@ -26,8 +26,8 @@ class ArticleRequest extends FormRequest
         return [
           'title'=>'min:1|max:50|required|unique:articles',
           'category_id'=>'required',
-          'content'=>'min:60|required',
-          //'image'=>'required'
+          'content'=>'min:10|max:60|required',
+          'image'=>'required|image'
         ];
     }
 }

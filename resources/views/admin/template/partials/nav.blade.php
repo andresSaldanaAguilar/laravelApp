@@ -64,7 +64,7 @@
          </ul>
        </li>
 
-          <li><a href="#" style="color:#3170D5">Imagenes</a></li>
+          <li><a href="{{ route('images.index')}}" style="color:#3170D5">Imagenes</a></li>
 
         </ul>
 

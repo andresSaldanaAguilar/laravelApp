@@ -19,7 +19,11 @@ class ArticlesController extends Controller
      */
     public function index(Request $request)
     {
-        $articles = Article::SearchArticle($request->title)->orderBy('id','ASC')->paginate(4);
+        $articles = Article::SearchArticle($request->title)->orderBy('id','DESC')->paginate(4);
+        $articles->each(function($articles){
+          $articles->category;
+          $articles->user;
+        });
         return view('admin.articles.index')->with('articles',$articles);
     }
 
@@ -60,7 +64,7 @@ class ArticlesController extends Controller
         $article=new Article($request->all());
         $article->user_id=\Auth::user()->id;
         $article->save();
-        //sync rellena la tabla pivote
+        //sync rellena la tabla pivote article_tag
         $article->tags()->sync($request->tags);
         if($request->file('image')){
         $image= new Image();
@@ -92,7 +96,14 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article=Article::find($id);
-        return view('admin.articles.edit')->with('article',$article);
+        //pluck lista de manera especifica los que se pide solamente
+        $categories=Category::orderBy('name','ASC')->pluck('name','id');
+        $tags= Tag::orderBy('name','ASC')->pluck('name','id');
+
+        return view('admin.articles.edit')
+        ->with('categories',$categories)
+        ->with('article',$article)
+        ->with('tags',$tags);
     }
 
     /**
@@ -107,6 +118,7 @@ class ArticlesController extends Controller
         $article=Article::find($id);
         $article->fill($request->all());
         $article->save();
+        $article->tags()->sync($request->tags);
         flash("El usuario ". $article->title ." se ha editado de forma exitosa.")->success()->important();
         return redirect()->route('articles.index');
     }

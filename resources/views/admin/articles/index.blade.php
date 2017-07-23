@@ -31,8 +31,8 @@
 			<thead>
 				<th>ID</th>
 				<th>Titulo</th>
-				<th>Email</th>
-				<th>Tipo</th>
+				<th>Categoria</th>
+				<th>Usuario</th>
 				<th>Acción</th>
 			</thead>
 			<tbody>
@@ -40,6 +40,8 @@
 					<tr>
 						<td>{{ $article->id }}</td>
 						<td>{{ $article->title }}</td>
+						<td>{{ $article->category->name }}</td>
+						<td>{{ $article->user->name }}</td>
 						<td>
 								<a href="{{route('articles.edit', $article->id)}}" class="btn btn-info">
 	 							 <span class="glyphicon glyphicon-edit" aria-hidden="true">

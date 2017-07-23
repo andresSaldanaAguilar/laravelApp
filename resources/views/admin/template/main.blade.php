@@ -8,10 +8,14 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
     <!--flash-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--chosen-->
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.css')}}">
+    <!--trumbwyg-->
     <link rel="stylesheet" href="{{asset('plugins/trumbowyg/ui/trumbowyg.css')}}">
+    <!--fileuploader-->
+    <link href="{{asset('plugins/fileinput/bootstrap-fileinput-master/css/fileinput.min.css')}}" media="all" rel="stylesheet" type="text/css">
+
   </head>
   <style>
       html, body {
@@ -52,12 +56,13 @@
         </div>
       </div>
 
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js')}}"></script>
     <script src="{{ asset('plugins/trumbowyg/trumbowyg.js')}}"></script>
     <script src="{{ asset('plugins/trumbowyg/plugins/emoji/trumbowyg.emoji.js')}}"></script>
+    <script src="{{ asset('plugins/fileinput/bootstrap-fileinput-master/js/fileinput.js')}}"></script>
 
     @yield('js')
   <body>
