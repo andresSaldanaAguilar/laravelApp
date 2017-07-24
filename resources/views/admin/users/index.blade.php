@@ -4,6 +4,8 @@
 
 @section('main-panel-style','panel panel-primary')
 
+@section('awesome-icon','fa-user-circle-o ')
+
 @section('create-new')
 		<li style="float: right;">
 			<a href="{{route('users.create')}}" class="btn btn-success">

@@ -3,6 +3,7 @@
 @section('header','Lista de tags')
 
 @section('main-panel-style','panel panel-primary')
+@section('awesome-icon','fa-tag')
 
 @section('create-new')
 		<li style="float: right;">

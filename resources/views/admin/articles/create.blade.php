@@ -51,7 +51,6 @@
 @endsection
 
 @section('js')
-<script src="{{asset('plugins/fileinput/bootstrap-fileinput-master/themes/fa')}}"></script>
 <script>
 	$('.select-tag').chosen({
 		placeholder_text_multiple:'Seleccionar tags (3 maximo)',
@@ -69,11 +68,12 @@
 	});
 
 	$('.input-file').fileinput({
-		maxFileSize:200,
-		width:"120px",
-		length:"120px",
+		maxFileSize:500,
 		maxFileCount: 1,
-		allowedFileExtensions: ["jpg", "gif", "png", "jpeg"]
+		allowedFileExtensions: ["jpg", "gif", "png", "jpeg"],
+		maxImageWidth: 200,
+	 	maxImageHeight: 150,
+	 	resizeImage: true
 	});
 
 </script>

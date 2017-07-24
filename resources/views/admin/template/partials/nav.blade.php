@@ -29,7 +29,8 @@
         <ul class="nav navbar-nav">
 
            <li>
-             <a href="{{route('admin.index')}}" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-home" style="color:#3170D5"></span></a>
+             <i class="fa fa-gg-circle fa-2x"style="float: left;padding-top:10px;color:#3170D5"></i>
+             <a href="{{route('front.members.index')}}" role="button"></a>
            </li>
 
            <li class="dropdown">

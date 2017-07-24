@@ -11,15 +11,21 @@
 |
 */
 
-Route::get('/',['as'=>'admin.index',function () {
-    return view('welcome');
-}]);
+//rutas del frontkend
+Route::get('/',[
+  'as'=>'front.members.index',
+  'uses'=>'MembersController@index'
+]);
 
+
+
+
+//rutas del backend
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 	//nombre de la subruta y nombre del controlador
 
   Route::get('/',['as'=>'admin.index',function () {
-      return view('welcome');
+      return view('front.members.index');
   }]);
 
   Route::resource('users','UsersController');

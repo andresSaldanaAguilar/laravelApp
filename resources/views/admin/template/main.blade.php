@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
-
     <!--flash-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--chosen-->
@@ -15,6 +14,8 @@
     <link rel="stylesheet" href="{{asset('plugins/trumbowyg/ui/trumbowyg.css')}}">
     <!--fileuploader-->
     <link href="{{asset('plugins/fileinput/bootstrap-fileinput-master/css/fileinput.min.css')}}" media="all" rel="stylesheet" type="text/css">
+    <!--font-awesome-->
+    <link rel="stylesheet" href="{{asset('plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 
   </head>
   <style>
@@ -37,7 +38,10 @@
       <div class="@yield('main-panel-style','panel panel-default')">
           <div class="panel-heading" style="background-color:#3170D5;">
             <ul class="nav nav-pills" >
-              <li><h4>@yield('header')</h4></li>
+              <li>
+                <i class="fa @yield('awesome-icon') fa-4x"style="float: left;padding-right:10px;"></i>
+                <h4>@yield('header')</h4>
+              </li>
               <li>@yield('create-new')<li>
             </ul>
           </div>
@@ -62,6 +66,7 @@
     <script src="{{ asset('plugins/chosen/chosen.jquery.js')}}"></script>
     <script src="{{ asset('plugins/trumbowyg/trumbowyg.js')}}"></script>
     <script src="{{ asset('plugins/trumbowyg/plugins/emoji/trumbowyg.emoji.js')}}"></script>
+    <script src="{{ asset('plugins/fileinput/bootstrap-fileinput-master/js/plugins/piexif.js')}}"></script>
     <script src="{{ asset('plugins/fileinput/bootstrap-fileinput-master/js/fileinput.js')}}"></script>
 
     @yield('js')

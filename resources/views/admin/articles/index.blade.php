@@ -3,6 +3,7 @@
 @section('header','Lista de Articulos')
 
 @section('main-panel-style','panel panel-primary')
+@section('awesome-icon','fa-bold')
 
 @section('create-new')
 		<li style="float: right;">
@@ -12,8 +13,8 @@
 			</a>
 		</li>
 
-		<!--buscador de articles-->
 			{!! Form::open(['route'=>'articles.index','method'=>'GET','class'=>'navbar-form pull-right'])!!}
+			<!--buscador de articles-->
 				<div class="input-group">
 					{!! Form::text('title',null,['class'=>'form-control','placeholder'=>'Buscar articulo','aria-describedby'=>'search'])!!}
 					<span class="input-group-addon" id="search">

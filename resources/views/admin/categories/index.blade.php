@@ -4,6 +4,7 @@
 
 @section('main-panel-style','panel panel-primary')
 
+@section('awesome-icon','fa-list ')
 @section('create-new')
 		<li style="float: right;">
 			<a href="{{route('categories.create')}}" class="btn btn-success">
