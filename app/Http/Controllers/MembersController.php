@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Image;
-
+use Carbon\Carbon;
 
 
 class MembersController extends Controller
@@ -15,6 +15,10 @@ class MembersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+      Carbon::setLocale('es');
+    }
     public function index()
     {
         $articles=Article::orderBy('id','DESC')->paginate(6);
