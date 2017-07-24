@@ -29,12 +29,12 @@
         <ul class="nav navbar-nav">
 
            <li>
-             <i class="fa fa-gg-circle fa-2x"style="float: left;padding-top:10px;color:#3170D5"></i>
-             <a href="{{route('front.members.index')}}" role="button"></a>
+
+             <a href="{{route('front.members.index')}}" role="button"><i class="fa fa-gg-circle fa-3x"style="color:#3170D5"></i></a>
            </li>
 
            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Usuarios <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding-top:25px;color:#3170D5">Usuarios <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="{{route('users.create')}}">Crear</a></li>
               <li><a href="{{route('users.index')}}">Manejar</a></li>
@@ -42,7 +42,7 @@
           </li>
 
           <li class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Categorias <span class="caret"></span></a>
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding-top:25px;color:#3170D5">Categorias <span class="caret"></span></a>
            <ul class="dropdown-menu">
              <li><a href="{{route('categories.create')}}" >Crear</a></li>
              <li><a href="{{route('categories.index')}}">Manejar</a></li>
@@ -50,7 +50,7 @@
          </li>
 
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Tags <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding-top:25px;color:#3170D5">Tags <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{route('tags.create')}}">Crear</a></li>
             <li><a href="{{route('tags.index')}}">Manejar</a></li>
@@ -58,20 +58,20 @@
         </li>
 
         <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">Articulos <span class="caret"></span></a>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding-top:25px;color:#3170D5">Articulos <span class="caret"></span></a>
          <ul class="dropdown-menu">
            <li><a href="{{route('articles.create')}}">Crear</a></li>
            <li><a href="{{route('articles.index')}}">Manejar</a></li>
          </ul>
        </li>
 
-          <li><a href="{{ route('images.index')}}" style="color:#3170D5">Imagenes</a></li>
+          <li><a href="{{ route('images.index')}}" style="padding-top:25px;color:#3170D5">Imagenes</a></li>
 
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#3170D5">{{ Auth::user()->name }}  <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding-top:25px;color:#3170D5">{{ Auth::user()->name }}  <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('admin.auth.logout')}}">Salir</a></li>
             </ul>

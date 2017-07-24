@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--font-awesome-->
     <link rel="stylesheet" href="{{asset('plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <!--custom css-->
+    <link rel="stylesheet" href="{{asset('customcss/offcanvas.css')}}">
 
   </head>
   <style>
@@ -23,7 +25,7 @@
       }
     </style>
 
-  <body style="padding-top: 50px;background-color:#DBDBDB;">
+  <body style="padding-top: 68px;background-color:#DBDBDB;">
     <!--navbar-->
     @include('admin.template.partials.nav')
     <!--header-->
@@ -50,7 +52,7 @@
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js')}}"></script>
-
+    <script src="{{ asset('customjs/offcanvas.js')}}"></script>
     @yield('js')
   <body>
 </html>

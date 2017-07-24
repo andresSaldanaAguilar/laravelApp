@@ -11,13 +11,11 @@
 |
 */
 
-//rutas del frontkend
+//rutas del frontend
 Route::get('/',[
   'as'=>'front.members.index',
   'uses'=>'MembersController@index'
 ]);
-
-
 
 
 //rutas del backend

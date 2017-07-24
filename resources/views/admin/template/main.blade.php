@@ -29,7 +29,7 @@
       }
 
     </style>
-  <body style="padding-top: 70px;background-color:#DBDBDB;">
+  <body style="padding-top: 95px;background-color:#DBDBDB;">
     <!--navbar-->
 
     @include('admin.template.partials.nav')
