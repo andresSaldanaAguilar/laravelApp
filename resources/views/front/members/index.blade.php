@@ -7,17 +7,19 @@
   <div class="container">
 
     <div class="row row-offcanvas row-offcanvas-right">
-      <div class="col-xs-12 col-sm-9">
+      <div class="col-xs-12 col-md-9">
+        <p class="pull-right visible-xs">
+          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+        </p>
         <div class="jumbotron">
           <h1>Bienvenido!</h1>
-          <p>Este es un blog que cree con el proposito de aprender programacion back-end y fron-tend.</p>
+          <p>Este es un blog que cree con el proposito de aprender programacion back-end y front-end.</p>
         </div>
 
         <div class="row">
           @foreach($articles as $article)
-          <div class="col-xs-6 col-lg-4">
+          <div class="col-md-4">
             <h2>{{$article->title}}</h2>
-
             <p>{{$article->content}}</p>
             <a class="btn btn-md btn-sprymary" style="background-color:#3170D5;color:white;" href="#">
               <i class="fa fa-paper-plane fa-fw" ></i>&nbsp; Leer más</a>
@@ -27,21 +29,7 @@
         </div><!--/row-->
       </div><!--/.col-xs-12.col-sm-9-->
 
-      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-        <div class="list-group">
-          <a href="#" class="list-group-item active">Categorias</a>
-          <a href="#" class="list-group-item"> Link <span class="badge">4</span></a>
-          <a href="#" class="list-group-item">Link</a>
-          <a href="#" class="list-group-item">Link</a>
-          <a href="#" class="list-group-item">Link</a>
-          <a href="#" class="list-group-item">Link</a>
-          <a href="#" class="list-group-item">Link</a>
-          <a href="#" class="list-group-item">Link</a>
-          <a href="#" class="list-group-item">Link</a>
-          <a href="#" class="list-group-item">Link</a>
-        </div>
-      </div><!--/.sidebar-offcanvas-->
-    </div><!--/row-->
+     @include('front.partials.aside')
 
     <hr>
 

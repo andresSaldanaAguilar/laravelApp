@@ -26,13 +26,26 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
 
     return [
-        'name' => $faker->catchPhrase,
+        'name' => $faker->word,
     ];
 });
 
 $factory->define(App\Tag::class, function (Faker\Generator $faker) {
 
     return [
+
+
         'name' => $faker->word,
+    ];
+});
+
+$factory->define(App\Article::class, function (Faker\Generator $faker) {
+
+    return [
+        'title' => $faker->word,
+        'content'=> $faker->sentence($nbWords = 6, $variableNbWords = true),
+        'user_id' =>$faker->numberBetween($min = 9, $max =43),
+        'category_id' =>$faker->numberBetween($min = 15, $max = 19),
+        'image'=> $faker->imageUrl($width = 640, $height = 480)
     ];
 });
