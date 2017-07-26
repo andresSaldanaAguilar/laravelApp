@@ -17,6 +17,15 @@ Route::get('/',[
   'uses'=>'MembersController@index'
 ]);
 
+Route::get('categories/{name}',[
+  'uses'=>'MembersController@searchCategory',
+  'as'=>'front.search.category'
+]);
+
+Route::get('tags/{name}',[
+  'uses'=>'MembersController@searchTag',
+  'as'=>'front.search.tag'
+]);
 
 //rutas del backend
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){

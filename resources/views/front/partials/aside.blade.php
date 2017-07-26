@@ -1,3 +1,4 @@
+<!--lista de categorias-->
 <div class="list-group">
   <div class="col-md-3 sidebar-offcanvas" id="sidebar">
     <div class="list-group" role="menu" style="height: auto;
@@ -5,8 +6,10 @@
         overflow-x: hidden;">
         <a href="#" class="list-group-item active">Categorias</a>
         @foreach ($categories as $category)
-          <a href="#" class="list-group-item"> {{ $category->name }}
-          <span class="badge"> {{ $category->articles->count() }} </span>  </a>
+
+          <a href="{{ route('front.search.category',$category->name)}}" class="list-group-item">
+              {{$category->name}} <span class="badge"> {{ $category->articles->count() }} </span>
+          </a>
         @endforeach
     </div>
   </div><!--/.sidebar-offcanvas-->
@@ -17,7 +20,8 @@
         overflow-x: hidden;">
         <a href="#" class="list-group-item active">Tags</a>
         @foreach ($tags as $tag)
-          <label class="label label-default"> {{ $tag->name }} </label>
+          <span class="label label-default"><a href="{{ route('front.search.tag',$tag->name)}}">
+             {{ $tag->name }} </a></span>
           &nbsp;
         @endforeach
     </div>

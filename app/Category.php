@@ -13,4 +13,7 @@ class Category extends Model
     public function articles(){
         return $this->hasMany('App\Article');
     }
+    public function scopeSearchCategory($query,$name){
+        return $query->where('name','LIKE',"%$name%");
+    }
 }
