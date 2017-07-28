@@ -7,6 +7,7 @@ use App\Article;
 use App\Image;
 use App\Category;
 use Carbon\Carbon;
+use App\Tag;
 
 
 class MembersController extends Controller
@@ -33,8 +34,7 @@ class MembersController extends Controller
 
     public function searchCategory($name){
         $category= Category::searchCategory($name)->first();
-        $articles=$category->articles()->paginate(4);
-
+        $articles=$category->articles()->paginate(6);
         $articles->each(function($articles){
           $articles->category;
           $articles->image;
@@ -44,13 +44,22 @@ class MembersController extends Controller
 
     public function searchTag($name){
         $tag= Tag::searchTag($name)->first();
-        $articles=$category->articles()->paginate(4);
+        $articles=$tag->articles()->paginate(6);
 
         $articles->each(function($articles){
           $articles->category;
           $articles->image;
         });
         return view('front.members.index')->with('articles',$articles);
+    }
+
+    public function viewArticle($slug){
+      $article= Article::where('slug', $slug)->firstOrFail();
+      $article->category;
+      $article->user;
+      $article->image;
+
+      return view('front.members.article')->with('article',$article);
     }
 
 }

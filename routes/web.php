@@ -27,14 +27,21 @@ Route::get('tags/{name}',[
   'as'=>'front.search.tag'
 ]);
 
+Route::get('articles/{slug}',[
+  'uses'=>'MembersController@viewArticle',
+  'as'=>'front.view.article'
+]);
+
 //rutas del backend
-Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>['auth']],function(){
 	//nombre de la subruta y nombre del controlador
 
   Route::get('/',['as'=>'admin.index',function () {
       return view('front.members.index');
   }]);
 
+Route::group(['middleware'=>'admin'],function(){
+  //////
   Route::resource('users','UsersController');
     Route::get('users/{id}/destroy',  [
       'uses'=>'UsersController@Destroy',
@@ -52,6 +59,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
       'uses'=>'TagsController@Destroy',
       'as'=>'admin.tags.destroy'
   ]);
+
+});
 
   Route::resource('articles','ArticlesController');
     Route::get('articles/{id}/destroy',[

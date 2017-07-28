@@ -27,40 +27,12 @@
     </style>
 
   <body style="padding-top:68px;background-color:white">
-    <!--navbar-->
-    @include('admin.template.partials.nav')
-    <!--header-->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('{{asset('images/home.jpg')}}');height:600px">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                      <div class="panel-heading">
-                        <ul class="nav nav-pills">
-                          <div style="text-align:center "><h2><li style="color:white"><i class="fa @yield('icon') fa-5x"></i></h2></li></div>
-                        </ul>
-                      </div>
-                        <h1 style="color:white;font-size:550%;text-align:center">@yield('main-title')</h1>
-                        <div style="text-align:center">
-                          @yield('links')
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!--content-->
-    <div class="panel-body container">
-        </br></br>
-        @yield('content')
+    <div style="color:grey;text-align:center;">
+      <p style="font-size:300%;">Acceso Restringido<p>
+      <p style="text-align:center;"><i class="fa fa-lock fa-5x" aria-hidden="true"></i></p>
+      <a class="btn btn-lg btn-success" href="{{route('front.members.index')}}">
+      Volver a pagina principal</a>
     </div>
-
-
-      <footer class="container-fluid"style="background-image: url('{{asset('images/home.jpg')}}');height:80px;color:black">
-          <h4> Saldaña Aguilar Andrés || 2017 </h4>
-      </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
